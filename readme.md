@@ -12,12 +12,12 @@ Based on [FolioGallery](http://www.foliopages.com/php-jquery-ajax-photo-gallery-
 
 Difference from original version:
 
-* Added support for subfolders
-* Autorotate images based on EXIF information
+* Added support for subfolders.
+* Autorotate images based on EXIF information.
 * On-fly resize images. You can use your original  photo archives without pre-resizing it for web view.
-* Speed-up page loading for big image collections
+* Speed-up page loading for big image collections.
 * Moved thumbs to a separate folder. The gallery does not require write permissions to albums folders.
-* Used [php-image-magician](https://github.com/Oberto/php-image-magician) library for thumbs generation and image on-fly resizing
+* Used [php-image-magician](https://github.com/Oberto/php-image-magician) library for thumbs generation and image on-fly resizing.
 
 ## Requirements
 
