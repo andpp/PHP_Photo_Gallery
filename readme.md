@@ -30,7 +30,6 @@ In folio-gallery.php:
 * Update **$mainFolder** with the folder for your photo albums.
 * Update **$thumbFolder** with the folder for thumbs. The folder should have write permissions for your webserver user (usually **www-data**).
 
-
 	$mainFolder    = 'albums';   // folder where your albums are located - relative to root
 	$thumbsFolder  = 'thumbs';   // folder where your thumbs are located - relative to root
 
