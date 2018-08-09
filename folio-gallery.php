@@ -1,5 +1,4 @@
 <?php 
-// error_reporting (E_ALL ^ E_NOTICE);
 // photo gallery settings
 $mainFolder    = 'albums';   // folder where your albums are located - relative to root
 $albumsPerPage = '64';       // number of albums per page
@@ -7,25 +6,6 @@ $itemsPerPage  = '128';      // number of images per page
 $thumb_width   = '150';      // width of thumbnails
 //$thumb_height  = '85';       // height of thumbnails
 $extensions    = array(".jpg",".png",".gif",".JPG",".PNG",".GIF"); // allowed extensions in photo gallery
-
-/*
-// create thumbnails from images
-function make_thumb($folder,$src,$dest,$thumb_width) {
-
-	$source_image = imagecreatefromjpeg($folder.'/'.$src);
-	$width = imagesx($source_image);
-	$height = imagesy($source_image);
-	
-	$thumb_height = floor($height*($thumb_width/$width));
-	
-	$virtual_image = imagecreatetruecolor($thumb_width,$thumb_height);
-	
-	imagecopyresampled($virtual_image,$source_image,0,0,0,0,$thumb_width,$thumb_height,$width,$height);
-	
-	imagejpeg($virtual_image,$dest,100);
-	
-}
-*/
 
 // display pagination
 function print_pagination($numPages,$urlVars,$currentPage) {
@@ -102,7 +82,6 @@ function get_subdirs($parent) {
 	    $caption = substr($album,0,30);
 	    array_push( $captions, $caption );
 			 
-	    //$rand_dirs = glob($mainFolder.'/'.$album.'/thumbs/*.*', GLOB_NOSORT);
 	    $rand_dirs = glob($mainFolder . '/' . $parent.'/'.$album.'/*.*', GLOB_NOSORT);
 	    if( count($rand_dirs) != 0) {
                 $rand_pic = find_image($rand_dirs);
@@ -140,12 +119,6 @@ function print_albums($albums, $random_pics, $captions) {
         } 
  
         $start = ( $currentPage * $albumsPerPage ) - $albumsPerPage;
-/*	
-	echo '<div class="titlebar">
-                <div class="float-left"><span class="title">Albums: ' . $_GET['album'] . '</span> <a href="'.$_SERVER['PHP_SELF'].'">View All Albums</a></div>
-                <div class="float-right">'.count($albums).' albums</div>
-		</div>';
-*/
 	print_titlebar(count($albums), true);
         echo '<div class="clear"></div>';
 	for( $i=$start; $i<$start + $albumsPerPage; $i++ ) {
@@ -191,19 +164,6 @@ function get_files($mainFolder, $alb) {
         $ext = strrchr($file, '.');
         if(in_array($ext, $extensions)) {
 	   array_push( $files, $file );
-/*		   
-	   if (!is_dir($src_folder.'/thumbs')) {
-              mkdir($src_folder.'/thumbs');
-              chmod($src_folder.'/thumbs', 0777);
-              //chown($src_folder.'/thumbs', 'apache'); 
-           }
-		   
-	   $thumb = $src_folder.'/thumbs/'.$file;
-           if (!file_exists($thumb)) {
-              make_thumb($src_folder,$file,$thumb,$thumb_width); 
-          
-	   }
-*/
        }
      }
 
@@ -217,8 +177,6 @@ function print_titlebar($cnt, $is_albums = false) {
       $albs = explode ("/", $alb);
 
       echo '<div class="titlebar">';
-      //      echo   ' <div class="float-left"><span class="title">'. $_GET['album'] .'</span> - <a href="'.$_SERVER['PHP_SELF'].'">View All Albums</a></div>';
-
       echo   ' <div class="float-left"><span class="title">';
       if ($is_albums)  echo 'Albums: '; 
       echo '<a href="'.$_SERVER['PHP_SELF'].'">Home</a>';
@@ -259,24 +217,6 @@ function print_files($files, $src_folder) {
 
       $start = ( $currentPage * $itemsPerPage ) - $itemsPerPage;
 
-/*
-      $alb = $_GET['album'];
-      $alb = ltrim(str_replace("//","/",$alb),'/');
-      $albs = explode ("/", $alb);
-
-      echo '<div class="titlebar">';
-      //      echo   ' <div class="float-left"><span class="title">'. $_GET['album'] .'</span> - <a href="'.$_SERVER['PHP_SELF'].'">View All Albums</a></div>';
-
-      echo   ' <div class="float-left"><span class="title">';
-      echo '<a href="'.$_SERVER['PHP_SELF'].'">Home</a>';
-      for ($i=0; $i < count($albs)-1; $i++) {
-        echo '<a href="'.$_SERVER['PHP_SELF'].'?album='. urlencode(join("/", array_slice($albs, 0, $i+1)))  .'">/'. $albs[$i] .'</a>';
-      }
-      echo '/' . $albs[count($albs)-1];
-      echo   '</span></div>';
-      echo   ' <div class="float-right">'.count($files).' images</div>
-	      </div>';	  
-*/
       print_titlebar(count($files));
       echo '<div class="clear"></div>';
       for( $i=$start; $i<$start + $itemsPerPage; $i++ ) {
