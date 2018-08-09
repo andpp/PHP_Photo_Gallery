@@ -4,6 +4,12 @@ Simple  PHP Photo Gallery - PHP, jQuery, Ajax Photo Gallery No Database
   
 Based on [FolioGallery](http://www.foliopages.com/php-jquery-ajax-photo-gallery-no-database). It is a simple and lightweight gallery that does not require a database to run. 
 
+* Free for personal and commercial use.
+* Display multiple albums and/or full gallery in one page.
+* Responsive interface.
+* Automatic thumbnail creation.
+* Customizable appearance through CSS.
+
 Difference from original version:
 
 * Added support for subfolders
