@@ -18,6 +18,11 @@ Difference from original version:
 * Moved thumbs to a separate folder. The gallery does not require write permissions to albums folders.
 * Used [php-image-magician](https://github.com/Oberto/php-image-magician) library for thumbs generation and image on-fly resizing
 
+## Requirements
+
+* A server running PHP 5+.
+* PHP GD library (for automatic thumbnail creation and on-fly image resizing).
+
 ## Configuration
 
 In folio-gallery.php:
