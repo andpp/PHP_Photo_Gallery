@@ -24,7 +24,7 @@ The script will paginate the results automatically.
 Integrated is lightbox clone 'fancybox' from www.fancybox.net. 
 
 For more info please visit:
-www.FolioPages.com/php-photo-gallery 
+http://www.foliopages.com/php-jquery-ajax-photo-gallery-no-database 
 
 Harry G
 info@foliopages.com  
