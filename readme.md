@@ -12,3 +12,10 @@ Difference from original version:
 * Moved thumbs to separate folder. The gallery does not require write permissions to albums folders.
 * Used [php-image-magician](https://github.com/Oberto/php-image-magician) library for thumbs generation and image on-fly resizing
 
+# Configuration
+
+Update ==$mainFolder== with the folder for your photo albums
+Update ==$thumbFolde==r with the folder for thumbs. The folder should have write permissions for your webserver user (usually **www-data**)
+
+	$mainFolder    = 'albums';   // folder where your albums are located - relative to root
+	$thumbsFolder  = 'thumbs';   // folder where your thumbs are located - relative to root
