@@ -21,11 +21,14 @@
 <script type="text/javascript" src="colorbox/jquery.colorbox-min.js"></script>
 <!--<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.1.min.js"></script>-->
 <script type="text/javascript">
-$(document).ready(function() {	
-	
+$(document).ready(function() {
+
 	// colorbox settings
-	$(".albumpix").colorbox({rel:'albumpix', width: "100%", height: "100%", maxWidth: "100%", maxHeight:"100%"});
-	
+	$(".albumpix").colorbox({rel:'albumpix', width: "100%", height: "100%", maxWidth: "100%",
+		maxHeight:"100%", photo: !0, slideshow: !0, slideshowAuto: !1, loop: !1,
+		slideshowStart: "Start Slideshow &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp",
+		slideshowStop: "Stop Slideshow &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"});
+
 	// fancy box settings
 	/*
 	$("a.albumpix").fancybox({
@@ -46,9 +49,9 @@ $(document).ready(function() {
 
 <p>&nbsp;</p>
 
-<div class="gallery">  
+<div class="gallery">
   <?php include "folio-gallery.php"; ?>
-</div>   
+</div>
 
 </body>
 </html>
